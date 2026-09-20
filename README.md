@@ -165,7 +165,10 @@ Method A ~ E
 
 ## 7. 개발 환경
 
-Python 3.8, CPU 전용 PyTorch 기준으로 개발되었습니다. `environment.yaml`에
+Python 3.8 기준으로 개발되었습니다. 본 프로젝트의 현재 구현은 CPU 실행을
+기준으로 설정되어 있습니다 (`environment.yaml`에는 일반 `torch==2.4.1`
+패키지가 명시되어 있으며, 별도의 CPU 전용 빌드가 아니라 코드에서
+`device='cpu'`로 실행 장치를 지정하고 있습니다). `environment.yaml`에는
 개발 당시 사용한 패키지 버전이 그대로 고정되어 있습니다.
 
 ## 8. 설치 방법
@@ -311,8 +314,9 @@ models/
 ## 14. 알려진 한계
 
 - **Windows 중심 개발 환경**: `environment.yaml`에 Windows 전용 패키지
-  (`pywin32`, `win32-setctime`)가 포함되어 있으며, CPU 전용 PyTorch로 Windows
-  환경에서 개발·테스트되었습니다.
+  (`pywin32`, `win32-setctime`)가 포함되어 있으며, CPU 실행을 기준으로
+  Windows 환경에서 개발·테스트되었습니다 (`torch==2.4.1`은 일반 패키지이고,
+  코드가 `device='cpu'`로 실행 장치를 지정하고 있습니다).
 - **모델 가중치 미배포**: DECA/PIXIE/SMPL-X의 가중치와 보조 데이터는
   각자 라이선스에 동의한 뒤 사용자가 직접 다운로드해야 합니다
   ([10. 모델 파일 준비](#10-모델-파일-준비) 참고).
